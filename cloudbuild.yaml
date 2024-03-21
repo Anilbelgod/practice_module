@@ -1,6 +1,6 @@
 steps:
 - id: 'branch_name'
-  name: 'alpine'
+  name: 'tf_image'
   entrypoint: 'sh'
   args:
   - '-c'
