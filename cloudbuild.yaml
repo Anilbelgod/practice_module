@@ -20,7 +20,7 @@ steps:
 
 # [START tf-plan_validate_all]
 - id: 'tf plan validate all'
-  name: $_DEFAULT_REGION-docker.pkg.dev/$PROJECT_ID/$_GAR_REPOSITORY/terraform
+  name: work_bench_instance/$PROJECT_ID/$_GAR_REPOSITORY/terraform
   #entrypoint: /bin/bash
   entrypoint: /bin/sh
   args:
