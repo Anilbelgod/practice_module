@@ -1,16 +1,15 @@
+steps:
+  # Step 1: Check out the source code from the repository.
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', '', '.']
+  
+  # Step 2: Initialize Terraform.
+  - name: 'hashicorp/terraform:latest'
+    entrypoint: 'terraform'
+    args: ['init']
 
+  # Step 3: Run Terraform plan.
+  - name: 'hashicorp/terraform:latest'
+    entrypoint: 'terraform'
+    args: ['plan']
 
-# [START tf-plan_validate_all]
-- id: 'tf plan validate all'
-  name: work_bench_instance/$PROJECT_ID/$_GAR_REPOSITORY/terraform
-  #entrypoint: /bin/bash
-  entrypoint: /bin/sh
-  args:
-  - -c
-  - |
-      ./tf-wrapper.sh plan_validate_all ${BRANCH_NAME} ${_POLICY_REPO} ${PROJECT_ID} CLOUDSOURCE
-
-artifacts:
-  objects:
-    location: 'gs://${_ARTIFACT_BUCKET_NAME}/terraform/cloudbuild/plan/${BUILD_ID}'
-    paths: ['cloudbuild.yaml', 'work_bench_instance']
