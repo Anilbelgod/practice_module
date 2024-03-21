@@ -1,7 +1,7 @@
 steps:
   # Step 1: Check out the source code from the repository.
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', '', '.']
+    args: ['clone', 'https://github.com/Anilbelgod/practice_module.git', '.']
   
   # Step 2: Initialize Terraform.
   - name: 'hashicorp/terraform:latest'
