@@ -1,15 +1,29 @@
 steps:
-  # Step 1: Check out the source code from the repository.
-  - name: 'work_bench_instance'
-    args: ['clone', 'https://github.com/Anilbelgod/practice_module.git']
-  
-  # Step 2: Initialize Terraform.
-  - name: 'hashicorp/terraform:latest'
-    entrypoint: 'terraform'
-    args: ['init']
+ - id: 'branch name'
+   name:'alphine'
+   entrypoint:'sh'
+   args:
+   - 'c'
+   -  
+     echo "$BRANCH_NAME"
+     
+- id: 'tf init'
+  name:'hashicorp/terraform:1.0.0'
+  entrypoint:'sh'
+  args:
+  - 'c'
+  -  
+     terraform init
+  - id: 'tf plan'
+  name:'hashicorp/terraform:1.0.0'
+  entrypoint:'sh'
+  args:
+  - 'c'
+  -  
+     terraform plan
+     
 
-  # Step 3: Run Terraform plan.
-  - name: 'hashicorp/terraform:latest'
-    entrypoint: 'terraform'
-    args: ['plan']
+
+  
+  
 
