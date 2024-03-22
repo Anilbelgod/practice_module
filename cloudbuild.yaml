@@ -1,6 +1,6 @@
 steps:
 - id: 'branch_name'
-  name: 'alpine'
+  name: 'ubuntu'
   entrypoint: 'sh'
   args:
   - '-c'
